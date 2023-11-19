@@ -1,0 +1,3 @@
+#Solar Flair Detector program
+
+
