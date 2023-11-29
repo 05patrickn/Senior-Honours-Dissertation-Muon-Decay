@@ -13,7 +13,7 @@ file_paths = [
 # Initialize lists to store total counts and errors
 total_counts = []
 errors = []
-number_plates = [ 10, 20, 30, 40, 50]
+penetration = [ 5, 10, 15, 20, 25]
 
 # Define the number of data points to read
 num_data_points_to_read = 600
@@ -40,24 +40,25 @@ for selected_file in file_paths:
                 last_two_digits = int(count[-2:])
                 total_count += last_two_digits
 
-                good_data_points_read += 1
+                good_data_points_read += 1 #Only read muon counts, not decay counts
             data_points_read += 1
 
     # Append the total count
     total_counts.append(total_count)
-    error = (total_count)**0.5  # Calculate the square root manually
+    error = (total_count)**0.5  # Calculate the square root maanually
     errors.append(error)  # Append the calculated error for each file
 
 # Calculate differences in plate numbers and counts manually
 
 counts_diff = [total_counts[i] - total_counts[i+1] for i in range(len(total_counts) - 1)]
-
+print(counts_diff)
 # Plot the total number of counts in each file for the first 600 data points with error bars
-bar_width = 5  # Adjust the width of the bars
+bar_width = 3  # Adjust the width of the bars
 plt.figure(figsize=(10, 6))
-plt.bar(number_plates, counts_diff, width=bar_width, color='black', capsize=5)
-plt.xlabel('Differences in Plate Numbers')
+plt.bar(penetration, counts_diff,yerr=errors[:-1], width=bar_width, color='black', capsize=5)
+plt.ylim(0, 150)  # Set y-axis limits to 0 and 100
+plt.xlabel('Penetration depth [cm]')
 plt.ylabel('Differences in Total Number of Counts')
-plt.title('Counts Differences Vs Differences in Plate Numbers (First 600 Data Points) with Error Bars')
+plt.title('Counts Differences vs Penetration Depth with Error Bars')
 plt.grid(axis='y')
 plt.show()

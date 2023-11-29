@@ -51,20 +51,17 @@ for key, file_path in file_paths.items():
 
 # Convert data points from nanoseconds to microseconds
 data_points_microseconds = np.array(data_points) / 1000.0
-
-# Sort the data points
-sorted_data_points = np.sort(data_points_microseconds)
-
-# Data
 sorted_data_points = np.sort(data_points_microseconds)[::-1]
-y_data = np.arange(len(sorted_data_points))
-x_data = np.array(sorted_data_points)
+unique_elements, counts = np.unique(data_points, return_counts=True)
 
-# Initial parameter values
-initial_params =  [0,366479, 2.11255,-273.210, 5401.699]
+
+y_data = counts
+x_data = np.unique(sorted_data_points)
+
+
 
 # Use Minuit to find the best-fit parameters
-minuit = Minuit(neg_log_likelihood, x=initial_params[0], A=initial_params[1], tau=initial_params[2], m=initial_params[3], C=initial_params[4])
+minuit = Minuit(neg_log_likelihood, x=1, A=1.0, tau=2.0, m=0.0, C=0.0)
 
 minuit.migrad()
 

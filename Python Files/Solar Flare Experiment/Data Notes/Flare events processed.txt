@@ -1,0 +1,17 @@
+13-10-25-17-00.data, 25/10/2013, 08:01, X1.7, (Good)
+13-10-25-17-00.data, 25/10/2013, 15:12, X2.1, (Good)
+13-10-25-17-00.data, 28/10/2013, 02:12, X1, (Good
+13-10-25-17-00.data, 29/10/2013, 21:54, X2.3, (Good)
+13-10-25-17-00.data, 05/11/2013, 22:12, X3.3, (Good)
+13-10-25-17-00.data, 08/11/2013, 04:26, X1.1, (Good)
+21-10-20-16-09(Week3).data, 28/10/2021, 15:35, X1, (Too small, 3% dip)
+22-03-23-13-06.data, 30/03/2022, 17:37, X1.3, (Large peak afterwards?)
+23-01-09-10-46.data, 10/01/2023, 22:47, X1, (Too small, LARGER DIP AFTERWARDS, MAYBE USE THAT)
+23-02-06-12-57.data, 11/02/2023, 15:48, X1.1, (BAD DATA, TOO LATE, DO NOT INCLUDE)
+23-02-15-12-28.data, 17/02/2023, 20:16, X2.2, (No behaviour)
+23-02-28-13-15.data, 03/03/2023, 17:52, X2, (No Behaviorur)
+X1_59-2021_07_03 (Mat), 03/07/2021, 14:18, X1.19, (Opposite behaviour??)
+
+
+12 Total events detected.
+6 detectected Forbush events,  6 show no Forbush although expected (50% success rate.)

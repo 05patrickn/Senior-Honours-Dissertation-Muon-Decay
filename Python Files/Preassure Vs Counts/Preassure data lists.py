@@ -6,7 +6,7 @@ formatted_utc_times_list = []
 pressure_list = []
 
 # Read the data from the CSV file
-file_path = "preassure final.csv"
+file_path = "preassure data.csv"
 
 with open(file_path, 'r') as file:
     # Create a CSV reader
