@@ -11,7 +11,7 @@ result = numbers / 7.874
 x = np.arange(1, 12, 1)
 depths = [0.13208026, 0.23749047, 0.43853188, 0.86703073, 1.38684277, 4.03860808, 5.56769114, 8.82778766, 13.95732791, 22.69494539, 31.40716281]
 
-counts_corr = np.array([89, 14, 33, 41, 47])
+counts_corr = np.array([14/47, 33/47, 41/47, 47/47])
 
 
 plt.plot(depths, momentum)
@@ -27,16 +27,19 @@ plt.show()
 error = np.sqrt(counts_corr)
 
 # Convert momentum_muon from MeV/c to GeV/c
-momentum_muon = np.array([167.6, 236.6, 299.3, 359.4, 418.9]) / 1000
+momentum_muon = np.array([236.6, 299.3, 359.4, 418.9]) / 1000
 
 plt.figure(figsize=(8, 4))
 # Create another plot for momentum_muon vs counts with error bars and logarithmic scale
 plt.errorbar(momentum_muon, counts_corr, yerr=error, marker='o', linestyle='-', color='black', capsize=2, elinewidth=0.8, capthick=0.8)
 plt.xscale('log')  # Set x-axis to logarithmic scale
 plt.xlabel('Muon Momentum [GeV/c]')
-plt.ylabel('Differential Counts')
-plt.title('Muon Momentum vs Counts (Logarithmic Scale)')
+plt.ylabel('Differential Intensity [Norm. Arb. Units]')
+plt.title('Muon Momentum Spectrum')
 plt.grid(True)
 plt.show()
+
+plt.xlim(0.1, 10)  # Example values, adjust according to your data
+plt.ylim(0, 5)  # Example values, adjust according to your data
 
 print(result)

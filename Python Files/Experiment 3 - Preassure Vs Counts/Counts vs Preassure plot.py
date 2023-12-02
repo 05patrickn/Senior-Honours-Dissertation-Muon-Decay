@@ -9,7 +9,7 @@ sum_values = []
 std_dev_values = []
 
 # Read the file
-with open('preassure_mat_data.txt', 'r') as file:
+with open('preassure_data.txt', 'r') as file:
     for line in file:
         parts = line.strip().split(': ')
         if len(parts) == 2:
@@ -38,6 +38,7 @@ bin_indices = np.digitize(pressure, pressure_bins)
 mean_decays = [np.mean([decays[i] for i in range(len(decays)) if bin_indices[i] == bin_num]) for bin_num in range(1, len(pressure_bins))]
 std_decays = [np.std([decays[i] for i in range(len(decays)) if bin_indices[i] == bin_num]) for bin_num in range(1, len(pressure_bins))]
 
+plt.figure(figsize=(7, 3))
 
 # Create the scatter plot
 #scatter = plt.scatter(pressure, decays, color='blue', label='Data')
@@ -51,10 +52,36 @@ line = plt.plot(pressure_bins[:-1], trendline, color='red', label=f'Trendline: y
 
 plt.xlabel('Pressure (hPa)')
 plt.ylabel('Muon Counts [Arb. Units]')
-plt.title('Muon Counts vs Pressure for 20 bin intervals')
+#plt.title('Muon Counts vs Pressure for 20 bin intervals')
 plt.grid(True)
 
 # Add the equation of the trendline to the legend
 plt.legend([mean_scatter, line[0]], ['Mean Counts', f'Trendline: y = {coefficients[0]:.2f}x + {coefficients[1]:.2f}'])
+
+plt.show()
+
+# Bins for pressure data
+pressure_bins = np.linspace(min(pressure), max(pressure), 20)
+bin_indices = np.digitize(pressure, pressure_bins)
+
+# Calculate mean residuals for each bin
+mean_residuals = [np.mean([residuals[i] for i in range(len(residuals)) if bin_indices[i] == bin_num]) for bin_num in range(1, len(pressure_bins))]
+std_residuals = [np.std([residuals[i] for i in range(len(residuals)) if bin_indices[i] == bin_num]) for bin_num in range(1, len(pressure_bins))]
+
+plt.figure(figsize=(7, 3))
+
+# Create the scatter plot for mean residuals only
+mean_residual_scatter = plt.scatter(pressure_bins[:-1], mean_residuals, color='black', label='Mean Residuals in Bins')
+plt.errorbar(pressure_bins[:-1], mean_residuals, yerr=std_residuals, fmt='o', color='black', ecolor='black', elinewidth=1, capsize=3, capthick=1)
+
+# Plot the zero residuals line in red
+zero_residual_line = plt.axhline(0, color='red', linestyle='--', label='Zero Residuals')
+
+plt.xlabel('Pressure (hPa)')
+plt.ylabel('Residuals')
+plt.title('Binned Residuals Plot')
+plt.grid(True)
+
+plt.legend([mean_residual_scatter, zero_residual_line], ['Mean Residuals', 'Zero Residuals'])
 
 plt.show()

@@ -3,11 +3,11 @@ from datetime import datetime, timezone
 
 # Define the file paths and associated voltage values
 file_paths = {
-    "673.5V-Mat": "23-09-26-11-04-final.data"
+    "673.5V": "23-09-26-11-04-final.data"
 }
 
 # Choose a data file to plot
-selected_file = "673.5V-Mat"  # Choose the desired data file
+selected_file = "673.5V"  # Choose the desired data file
 
 # Get the file path for the selected data file
 selected_file_path = file_paths[selected_file]

@@ -50,11 +50,12 @@ for selected_file in file_paths:
     total_counts.append(total_count)
     error=np.sqrt(total_counts)
 # Plot the total number of counts in each file for the first 600 data points with error bars
+print (error)
 bar_width = 5  # Adjust the width of the bars
 plt.figure(figsize=(10, 6))
 plt.bar(number_plates, total_counts, width=bar_width,yerr=error, color='black', capsize=5)
 plt.xlabel('Number of Steel Plates')
 plt.ylabel('Total Number of Counts')
-plt.title('Total Counts Vs Number of plates (First 600 Data Points) with Error Bars')
+plt.title('Total Counts Vs Number of plates with Error Bars')
 plt.grid(axis='y')
 plt.show()
