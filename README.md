@@ -25,5 +25,6 @@ Before executing the Python code, ensure that the directory paths pointing to th
 # Update these paths according to your local directory structure
 data_path_experiment_1 = "/path/to/experiment_1/data/"
 data_path_experiment_2 = "/path/to/experiment_2/data/"
-
+```
 Any issues or questions, feel free to email me at 05patrickn@gmail.com
+
