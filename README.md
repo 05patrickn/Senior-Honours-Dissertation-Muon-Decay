@@ -1,4 +1,4 @@
-# Senior Honours Project: Muon Decay Analysis (A3 Grade)
+# Senior Honours Project: Muon Decay Analysis (1st Class Honours Grade)
 
 This repository contains all the components for my dissertation on Muon Decay, including raw data, Python code, and figures used in the report and poster. The Python folders are organized by their corresponding experiments. Please be aware that certain code segments may need adjustments to the raw data directories for seamless execution.
 
